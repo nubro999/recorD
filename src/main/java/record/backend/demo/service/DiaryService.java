@@ -5,6 +5,7 @@ import record.backend.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class DiaryService {
     @Autowired
     private OpenAiService openAiService;
 
-    public Diary saveDiary(User user, LocalDate date, String audioFilePath) {
+    public Diary saveDiary(User user, LocalDate date, String audioFilePath) throws IOException {
         // 1. 음성을 텍스트로 변환
         String text = openAiService.convertAudioToText(audioFilePath);
 
