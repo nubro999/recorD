@@ -1,1 +1,1 @@
-![record_diagram.drawio.png](..%2F..%2FDownloads%2Frecord_diagram.drawio.png)
+![record_diagram.drawio.png](record_diagram.drawio.png)
