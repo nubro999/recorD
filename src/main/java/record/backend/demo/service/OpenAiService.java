@@ -9,6 +9,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,9 +20,10 @@ import java.util.Map;
 @Service
 public class OpenAiService {
 
-    private static final String OPENAI_API_URL = "https://api.openai.com/v1/";
-    private static final String API_KEY = "your-openai-api-key";
-
+    @Value("${spring.key}")
+    private static String key;
+    private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions.";
+    private static final String API_KEY = key;
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
 
@@ -77,6 +79,7 @@ public class OpenAiService {
      */
     public String extractSummary(String text) {
         String url = OPENAI_API_URL + "chat/completions";
+        System.out.println("completions");
 
         // HTTP 요청 헤더 설정
         HttpHeaders headers = new HttpHeaders();
