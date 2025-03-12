@@ -4,7 +4,7 @@ spring:
     username: admin
     password: recordpass
     driver-class-name: com.mysql.cj.jdbc.Driver
-  key: {OPEN_AI_API_KEY}
+  key: {Gemini_API_KEY}
 
 
   jpa:
